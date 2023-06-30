@@ -1,0 +1,22 @@
+{
+  "name": "namaste-react",
+  "version": "1.0.0",
+  "description": "Learning and Building",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apoorva-kashyap-1999/namaste-react.git"
+  },
+  "keywords": [
+    "apoorva"
+  ],
+  "author": "Apoorva Kashyap",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/apoorva-kashyap-1999/namaste-react/issues"
+  },
+  "homepage": "https://github.com/apoorva-kashyap-1999/namaste-react#readme"
+}
