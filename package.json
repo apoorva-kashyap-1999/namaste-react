@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "Learning and Building",
   "scripts": {
+    "start": "parcel index.html",
+    "build":"parcel build index.html",
     "test": "jest"
   },
   "repository": {
@@ -27,7 +29,6 @@
     "react-dom": "^18.2.0"
   },
   "broswersList": [
-    "last 2 Chrome version",
     "last 2 versions"
   ]
 }
