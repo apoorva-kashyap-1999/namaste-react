@@ -1,3 +1,123 @@
-#heading{
-    color: blueviolet;
+.header{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    height:8rem;
+    border: 2px solid black;
+    border-radius: 9px;
+}
+
+.logo{
+    width: 10rem;
+}
+.nav-items{
+    font-size: 17px;
+}
+.nav-items>ul{
+  display:flex;
+  flex-wrap: wrap;
+  padding: 0px 20px
+ 
+}
+
+.nav-items>ul>li{
+    padding:2em;
+    list-style-type: none;
+}
+
+.search{
+    padding:10px;
+}
+
+.body{
+    background-color: antiquewhite;
+    padding:10px;
+    margin: 10px;
+}
+
+.search-container{
+    display: flex;
+}
+
+.search-button{
+    border: none;
+}
+.search-icon{
+    width:2em
+}
+.res-container{
+    display: flex;
+    flex-wrap: wrap;
+    padding:5px 5px
+}
+.res-card{
+    width: 15rem;
+    margin:5px;
+    border:1px solid transparent;
+    border-radius: 6px;
+    background-color: rgb(208, 236, 151);
+}
+
+.res-card:hover{
+    border:2px solid black;
+    border-radius: 6px;
+}
+
+.res-name{
+   text-align: left;
+}
+
+.res-logo{
+    width:100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    border:2px transparent;
+    border-radius: 4px;
+}
+.name-star{
+    display:flex;
+    justify-content: space-between;
+    padding: 0px 4px;
+    margin-bottom: 2em;
+}
+
+.res-cuisine{
+    padding:0px 4px;
+    word-wrap: break-word;
+}
+
+.res-area{
+    padding: 0px 4px;
+}
+
+.res-cost{
+    color:blue;
+}
+
+.footer{
+    margin: 10px;
+    width: auto;
+    text-align: center;
+    background-color: rgb(1, 163, 144);
+    padding: 20px 10px 20px;
+    border-radius: 5px;
+    box-shadow: -1px 4px 20px 14px rgba(0, 0, 0, 0.2);
+}
+
+.footer > i{
+    padding: 0 5px 0;
+    font-size: smaller;
+}
+
+.fa-heart{
+    color: darkred;
+}
+
+.footer > strong{
+    padding-left: 5px;
+}
+
+.footer > strong > span{
+    color: rgb(203, 54, 0)
 }
