@@ -53,5 +53,21 @@
   - 1.(jsonData?.data?.cards[2]?.data?.data?.cards) - until episode 5
   - 2. (jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants) - episode 6
 
+ # Routing Configuration (react-router-dom)
+  - createBrowserRouter takes lists of paths(object) 
+  - Router Provider
+  - useRouteError - hook by reaact-router-dom - details about error
+  - Link component for routing : smooth and fast : Single Page Application
+  - Link is a wrapper over anchor tag
+
+# Two types of Routing
+  - Client side routing
+  - Server side routing
+
+ # Dynamic Routing
+   -  path:'/restaurants/:resId 
+   - ':' means resId is dynamic
+   - useParams hook will fetch rameters from url.
+
 
 

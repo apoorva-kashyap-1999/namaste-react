@@ -1,5 +1,5 @@
+import { Link } from "react-router-dom";
 import ResterauntCard from './ResterauntCard'
-// import resData from '../utils/mockData';
 import { SWIGGY_API_URL } from '../utils/constants';
 import { useEffect, useState } from 'react';
 import Shimmer from './Shimmer';
@@ -15,7 +15,7 @@ console.log(listOfResteraunts);
  //filtering with rating above 4
 const handleClick = ()=>{
   const filtredResData = listOfResteraunts.filter((res) => res.info.avgRating > 4);
-  setListOfResteraunts(filtredResData);
+  setFilteredlistOfResteraunts(filtredResData);
  }
 
  //filtering based on input
@@ -58,7 +58,8 @@ const fetchData = async ()=>{
         </div>
         <div className="res-container">
         {filteredlistOfResteraunts.map((restaurant) => {
-          return <ResterauntCard key={restaurant.info.id}  {...restaurant.info} />;
+          return <Link to={'restaurants/'+restaurant.info.id} key={restaurant.info.id}><ResterauntCard  {...restaurant.info} /></Link>;
+          // return <ResterauntCard key={restaurant.info.id} {...restaurant.info} />
         })}
         </div>
       </div>
