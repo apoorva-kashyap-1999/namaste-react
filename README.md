@@ -69,7 +69,7 @@
    - ':' means resId is dynamic
    - useParams hook will fetch rameters from url.
 
- # Class Based Comonents
+ # Class Based Components
    - class name extends Ract.Component{
     constructor(props){
       super(props);
