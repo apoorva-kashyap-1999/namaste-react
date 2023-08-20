@@ -69,5 +69,23 @@
    - ':' means resId is dynamic
    - useParams hook will fetch rameters from url.
 
+ # Class Based Comonents
+   - class name extends Ract.Component{
+    constructor(props){
+      super(props);
+    }
+    render(){
+      return();
+    }
+   } 
+
+  - super(props) : t would pass the props to the parent constructor 
+  - this.props.x - to access the prop  
+  - Lifecycle methods : ComponentDidMount() etc : https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/ : Render and commit phase
+  - Parent constructor-> Parent render-> Child constructor -> Child render -> Child componentDidMount -> Parent componentDidMount
+  - To make api calls from class based we can make componenentDidMount 
+  -componentDidUpdate: triggerered from componentDidMount
+  -componentWillUnmount:called when component gets  removed from the page, ex moving to other component
+  -useEffect return function works like componentWillUnmount
 
 

@@ -125,3 +125,10 @@
     border-radius: 4px;
 }
 
+.user-card{
+    padding: 2px;
+    margin: 2px;
+    border: 2px solid black;
+}
+
+
