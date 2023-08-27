@@ -28,7 +28,7 @@ class UserClass extends React.Component{
                 avatar_url:json.avatar_url
             }
         });
-        this.timer = setInterval(()=>console.log('Namaste React OP'),(50000));
+        // this.timer = setInterval(()=>console.log('Namaste React OP'),(50000));
     }
 
     componentDidUpdate(){
@@ -37,7 +37,7 @@ class UserClass extends React.Component{
 
     componentWillUnmount(){
         console.log('Component will unmount calling');
-        clearInterval(this.timer)
+        // clearInterval(this.timer)
     }
     
     render(){

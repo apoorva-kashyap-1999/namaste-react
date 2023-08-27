@@ -12,7 +12,7 @@
   -Minification
   -Compress files
   -Consistent Hashing
-  -Code Splitting
+  -Code Splitting/ Dynamic Bundling/ Chunking/ Lazy Loading
   -Differential Bundling : supports older browser also
   -Diagnostics
   -Error Display View/ Error Handling
@@ -87,5 +87,20 @@
   -componentDidUpdate: triggerered from componentDidMount
   -componentWillUnmount:called when component gets  removed from the page, ex moving to other component
   -useEffect return function works like componentWillUnmount
+
+# Single Responsibility Principle :
+  - Every class, module, or function in a program should have one responsibility/purpose in a program
+
+# Custom Hooks :
+  - Custom Hooks in React are a way to encapsulate reusable logic and state within functional components
+
+# Window :
+  - The offline event of the Window interface is fired when the browser has lost access to the network and the value of Navigator.onLine switches to false.
+  - The online event of the Window interface is fired when the browser has gained access to the network and the value of Navigator.onLine switches to true.
+  - Lazy, Suspense(fallback)
+
+ 
+
+
 
 

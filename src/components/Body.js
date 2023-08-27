@@ -3,6 +3,7 @@ import ResterauntCard from './ResterauntCard'
 import { SWIGGY_API_URL } from '../utils/constants';
 import { useEffect, useState } from 'react';
 import Shimmer from './Shimmer';
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 //Body Component
 const Body = () => {
@@ -37,6 +38,12 @@ const fetchData = async ()=>{
   setFilteredlistOfResteraunts(jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
 }
 
+const onlineStatus = useOnlineStatus();
+if(onlineStatus === false){
+  return (
+  <h1>Looks like you're offline.Please check your internet connection</h1>
+  )}
+  
 //Conditional Rendering using Ternary Operator
   return  !listOfResteraunts?.length  ? (<Shimmer/>) : (
       <div className="body">

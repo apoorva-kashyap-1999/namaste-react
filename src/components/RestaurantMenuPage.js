@@ -1,26 +1,16 @@
-import  {useEffect, useState} from 'react'
 import {useParams} from 'react-router-dom'
 import Shimmer from './Shimmer';
-import { SWIGGY_MENU } from '../utils/constants';
+import useRestaurantMenu from '../utils/useRestaurantMenu';
 
 const RestaurantMenuPage = () =>{
 
-  const[ resInfo, setResInfo]=useState(null);
   // destructing resId from the url. and then we will dynamically put id from swiggy api
   //10366,25457
   const {resId } = useParams();
 
-  useEffect(()=>{
-    fetchMenu();
-  },[]);
+  //Custom hook->useRestaurantMenu
+  const resInfo = useRestaurantMenu(resId);
 
-  const fetchMenu = async () => {
-     const menu = await fetch(SWIGGY_MENU+resId);
-     const menuJson =  await menu.json();
-     setResInfo(menuJson.data);
-    //  console.log(resInfo);
-    //  console.log(menuJson);
-  }
     // Check if data is still loading
     if (resInfo === null) {
       return <Shimmer />;
