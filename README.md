@@ -99,6 +99,11 @@
   - The online event of the Window interface is fired when the browser has gained access to the network and the value of Navigator.onLine switches to true.
   - Lazy, Suspense(fallback)
 
+# Tailwind CSS
+ - Install with guide for parcel
+ - tailwindcss and postcss (tool for transforming css with js)
+ - Postcssrc is required by parcel to read tailwind
+
  
 
 
