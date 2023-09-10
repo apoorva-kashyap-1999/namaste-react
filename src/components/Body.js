@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import ResterauntCard from "./ResterauntCard";
+import ResterauntCard , {withVegLabel} from "./ResterauntCard";
 import { SWIGGY_API_URL } from "../utils/constants";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
@@ -13,6 +13,9 @@ const Body = () => {
   );
   const [searchText, setSearchText] = useState("");
   console.log(listOfResteraunts);
+
+  //PureVeg Card - hoc
+  const ResterauntCardVeg = withVegLabel(ResterauntCard);
 
   //filtering with rating above 4
   const handleClick = () => {
@@ -102,7 +105,9 @@ const Body = () => {
               to={"restaurants/" + restaurant.info.id}
               key={restaurant.info.id}
             >
-              <ResterauntCard {...restaurant.info} />
+              {/* If veg parameter is present and true show Veg label else nothing */}
+              {restaurant.info.veg && (restaurant.info.veg == true) ? (<ResterauntCardVeg {...restaurant.info}/>) :
+              (<ResterauntCard {...restaurant.info} />)}
             </Link>
           );
           // return <ResterauntCard key={restaurant.info.id} {...restaurant.info} />

@@ -12,7 +12,7 @@ const ResterauntCard = ({
   //destructing of props
   // const {name, time} = props;
   return (
-    <div className="p-4 m-4 bg-transparent w-[302px] rounded-lg shadow-lg transform hover:scale-90">
+    <div className="relative p-4 m-4 bg-transparent w-[302px] rounded-lg shadow-lg transform hover:scale-90">
       <img
         className="rounded-lg"
         alt="res-logo"
@@ -32,5 +32,21 @@ const ResterauntCard = ({
     </div>
   );
 };
+
+/* Higher order component -> this will take ResterauntCard comp as input 
+and enchance it with veg label if present and true and return it*/
+export const withVegLabel = (ResterauntCard) =>{
+  return (props)=>{
+    return(
+      <div className="relative">
+        <label className="absolute  bg-black text-white m-2 p-2 z-20 rounded-lg">Pure Veg</label>
+        <ResterauntCard {...props}/>
+      </div>
+    )
+  }
+}
+
+
+
 
 export default ResterauntCard;
