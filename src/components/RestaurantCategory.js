@@ -1,17 +1,16 @@
 import React, { useState } from 'react'
 import ItemList from './ItemList';
 
-const RestaurantCategory = ({data}) => {
+//Controlled Component as its parent RestMenu is controlling its behvior ith showItems prop
+const RestaurantCategory = ({data , showItems, setShowIndex, dummy}) => {
   // console.log(data);
-  const [showItems,setShowItems]=useState(false);
+  // const [showItems,setShowItems]=useState(false);
   const handleClick = () =>{
-    if(showItems){
-      setShowItems(false);
-    }
-    else{
-      setShowItems(true);
-    }
+      // setShowItems(!showItems);
+       setShowIndex()
+       
   }
+  
 
   return (
     <div>
@@ -22,7 +21,7 @@ const RestaurantCategory = ({data}) => {
         <span>🔽</span>
       </div>
         {/* Accordian Body */}
-        {showItems && <ItemList items={data.itemCards}/>}
+        {showItems && <ItemList items={data.itemCards} dummy={dummy} />}
     </div>
     </div>
   )

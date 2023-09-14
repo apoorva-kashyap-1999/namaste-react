@@ -20,7 +20,7 @@ const ResterauntCard = ({
       ></img>
       <div className="name-star">
         <h3 className="font-bold py-2 text-lg">{name}</h3>
-        <h5 className="font-bold">{avgRating} stars</h5>
+        <h5 className="font-bold">{avgRating} ⭐</h5>
       </div>
       <div className="font-bold">
         <h4>{costForTwoString}</h4>

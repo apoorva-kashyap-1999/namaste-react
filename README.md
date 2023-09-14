@@ -109,11 +109,24 @@
 
 # Controlled aand Uncontrolled Components
  - controlled : In a controlled component, form data is handled by a React component.
+ - Lifting state up - https://legacy.reactjs.org/docs/lifting-state-up.html
+ - In our app RestCategory is a controlledComponent as we are passing showIndex props to contol the behavior of accordian from its parent RestMenuPage.
+ 
 
  - uncontrolled : The alternative is uncontrolled components, where form data is handled
     by the DOM itself. To write an uncontrolled component, instead of
     writing an event handler for every state update, you can use a ref 
     to get form values from the DOM. 
+
+# Props Drilling
+ - https://www.scaler.com/topics/react/prop-drilling-in-react/
+ - Problem : https://react.dev/learn/passing-data-deeply-with-context#the-problem-with-passing-props
+
+# React Context 
+ - https://react.dev/reference/react/useContext
+ - https://react.dev/reference/react/createContext
+ - Cannot be used in class based components with hooks, so Context.Consumer is used
+   
 
  
 

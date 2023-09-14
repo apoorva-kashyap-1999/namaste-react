@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
-import ResterauntCard , {withVegLabel} from "./ResterauntCard";
+import ResterauntCard, { withVegLabel } from "./ResterauntCard";
 import { SWIGGY_API_URL } from "../utils/constants";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import Shimmer from "./Shimmer";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext.js";
 
 //Body Component
 const Body = () => {
@@ -12,7 +13,7 @@ const Body = () => {
     []
   );
   const [searchText, setSearchText] = useState("");
-  console.log(listOfResteraunts);
+  // console.log(listOfResteraunts);
 
   //PureVeg Card - hoc
   const ResterauntCardVeg = withVegLabel(ResterauntCard);
@@ -37,10 +38,10 @@ const Body = () => {
     const data = await fetch(SWIGGY_API_URL);
     const jsonData = await data.json();
     //Optional Chaining
-    console.log(
-      jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants.info
-    );
+    // console.log(
+    //   jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+    //     ?.restaurants.info
+    // );
     setListOfResteraunts(
       jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
@@ -50,6 +51,7 @@ const Body = () => {
         ?.restaurants
     );
   };
+  const { loggedInUser, setUserName } = useContext(UserContext);
 
   const onlineStatus = useOnlineStatus();
   if (onlineStatus === false) {
@@ -73,7 +75,7 @@ const Body = () => {
             }}
           ></input>
           <button
-            className="px-4 py-1 m-4 bg-orange-300 rounded-lg  hover:bg-orange-400"
+            className="px-4 py-1 m-4 bg-green-100 rounded-lg  hover:bg-green-300"
             value={searchText}
             onClick={() => {
               const filteredRes = listOfResteraunts.filter((restaurant) =>
@@ -89,13 +91,21 @@ const Body = () => {
         </div>
         <div className="p-4 m-4 flex items-center">
           <button
-            className="px-4 py-1 m-4 bg-orange-300 rounded-lg hover:bg-orange-400"
+            className="px-4 py-1 m-4 bg-green-100 rounded-lg hover:bg-green-300"
             onClick={() => {
               handleClick();
             }}
           >
             Top Rated Restaurant
           </button>
+        </div>
+        <div className="p-4 m-4 flex items-center">
+          <label className="p-2 font-bold">User Name :</label>
+          <input
+            className="border border-black p-2"
+            value={loggedInUser}
+            onChange={(e) => setUserName(e.target.value)}
+          ></input>
         </div>
       </div>
       <div className="flex flex-wrap">
@@ -106,8 +116,11 @@ const Body = () => {
               key={restaurant.info.id}
             >
               {/* If veg parameter is present and true show Veg label else nothing */}
-              {restaurant.info.veg && (restaurant.info.veg == true) ? (<ResterauntCardVeg {...restaurant.info}/>) :
-              (<ResterauntCard {...restaurant.info} />)}
+              {restaurant.info.veg && restaurant.info.veg == true ? (
+                <ResterauntCardVeg {...restaurant.info} />
+              ) : (
+                <ResterauntCard {...restaurant.info} />
+              )}
             </Link>
           );
           // return <ResterauntCard key={restaurant.info.id} {...restaurant.info} />

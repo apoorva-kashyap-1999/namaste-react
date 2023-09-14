@@ -12,7 +12,7 @@ const User = (props) => {
     async function getUserData(){
         const data= await fetch("https://api.github.com/users/akshaymarch7");
         const json= await data.json();
-        console.log(json);
+        // console.log(json);
     }
 
     return ( <div className="user-card">

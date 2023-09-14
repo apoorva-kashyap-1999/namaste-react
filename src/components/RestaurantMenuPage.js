@@ -2,8 +2,11 @@ import { useParams } from "react-router-dom";
 import Shimmer from "./Shimmer";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import RestaurantCategory from "./RestaurantCategory";
+import { useState } from "react";
 
 const RestaurantMenuPage = () => {
+  const [showIndex, setShowIndex] = useState(null);
+  const dummy = 'Dummy Data';
   // destructing resId from the url. and then we will dynamically put id from swiggy api
   //10366,25457
   const { resId } = useParams();
@@ -29,18 +32,31 @@ const RestaurantMenuPage = () => {
       ?.itemCards || [];
   // console.log(itemCard);
   // console.log(resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
-  const categories = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(c => c.card?.card?.['@type'] == "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory");
+  const categories =
+    resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+      (c) =>
+        c.card?.card?.["@type"] ==
+        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+    );
   return (
-    <div className="text-center" >
-        <h1 className="font-bold my-6 text-xl">{name}</h1>
-        <p className="font-bold text-md">
-          {cuisines.join(",")} - {costForTwoMessage}
-        </p>
-        {/* categories accordian */}
-        {categories.map((category)=>{
-          return <RestaurantCategory key={category?.card?.card.title} data={category?.card?.card} />
-        })}
-      </div>
+    <div className="text-center">
+      <h1 className="font-bold my-6 text-xl">{name}</h1>
+      <p className="font-bold text-md">
+        {cuisines.join(",")} - {costForTwoMessage}
+      </p>
+      {/* categories accordian */}
+      {categories.map((category, index) => {
+        return (
+          <RestaurantCategory
+            key={category?.card?.card.title}
+            data={category?.card?.card}
+            showItems={index === showIndex ? true: false}
+            setShowIndex = {()=>setShowIndex(index)}
+            dummy={dummy}
+          />
+        );
+      })}
+    </div>
   );
 };
 

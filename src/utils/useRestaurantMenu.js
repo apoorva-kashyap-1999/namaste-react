@@ -12,7 +12,7 @@ useEffect(()=>{
   const fetchData = async () => {
      const menu = await fetch(SWIGGY_MENU + resId);
      const menuJson =  await menu.json();
-     console.log(menuJson.data);
+    //  console.log(menuJson.data);
      setResInfo(menuJson.data);
   } 
     return resInfo;

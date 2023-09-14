@@ -1,12 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 //Header Component
 const Header = () => {
   const [buttonName, setButtonName] = useState("Login");
   const onlineStatus = useOnlineStatus();
+  const {loggedInUser} = useContext(UserContext);
   const handleClick = () => {
     buttonName === "Login" ? setButtonName("Logout") : setButtonName("Login");
   };
@@ -16,33 +18,32 @@ const Header = () => {
   }, [buttonName]);
 
   return (
-    <div className="flex flex-wrap justify-between bg-orange-300 shadow-lg m-2 rounded-md">
+    <div className="flex flex-wrap justify-between bg-green-100 shadow-lg m-2 rounded-md">
       <div className="logo-container">
         <img className="w-32" src={LOGO_URL}></img>
       </div>
       <div className="flex items-center">
         <ul className="flex flex-wrap p-6 m-3">
           <li className="px-3">Status : {onlineStatus ? "🟢" : "🔴"}</li>
-          <li className="px-3 border border-solid border-transparent bg-orange-400 rounded-md mx-2">
-            {" "}
+          <li className="px-3 hover:bg-green-200 rounded-md">
             <Link to="/">Home</Link>
           </li>
-          <li className="px-3 border border-solid border-transparent bg-orange-400 rounded-md mx-2">
-            {" "}
+          <li className="px-3 hover:bg-green-200 rounded-md">
             <Link to="/about">About</Link>
           </li>
-          <li className="px-3 border border-solid border-transparent bg-orange-400 rounded-md mx-2">
-            {" "}
+          <li className="px-3  hover:bg-green-200 rounded-md">
             <Link to="/contact">Contact Us</Link>
           </li>
-          <li className="px-3 border border-solid border-transparent bg-orange-400 rounded-md mx-2">
-            {" "}
+          <li className="px-3  hover:bg-green-200 rounded-md">
             <Link to="/grocery">Grocery</Link>
           </li>
-          <li className="px-3">Cart</li>
-          <button className="btn-login" onClick={handleClick}>
+          <li className="px-3 hover:bg-green-200 rounded-md">Cart</li>
+          <button className="px-3 hover:bg-green-300 rounded-md" onClick={handleClick}>
             {buttonName}
           </button>
+          {onlineStatus? <li className="px-3 font-bold  hover:bg-green-200 rounded-md">
+            {loggedInUser}
+          </li>:<></>}
         </ul>
       </div>
     </div>

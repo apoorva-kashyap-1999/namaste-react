@@ -45,12 +45,12 @@ class UserClass extends React.Component{
         // const {name}= this.props;
         const {count} =this.state;
         return ( <div className="user-card">
-        <img src={this.state.userInfo.avatar_url} />
+        <img className="rounded-md w-48" src={this.state.userInfo.avatar_url} />
         <h2>Name : {this.state.userInfo.name}</h2>
         <h3>Loction : {this.state.userInfo.location}</h3>
         <h4>Contact : 9xxxxxxx</h4>
         <h5>Count : {count}</h5>
-        <button onClick={()=>{
+        <button className="bg-gray-200 hover:bg-gray-400 rounded-md" onClick={()=>{
             this.setState({
                 count:count+1
             })

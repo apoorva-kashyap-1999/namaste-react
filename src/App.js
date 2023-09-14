@@ -1,4 +1,4 @@
-import React, {lazy} from "react";
+import React, {lazy, useEffect, useState} from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter , RouterProvider , Outlet} from "react-router-dom";
 import Header from './components/Header.js'
@@ -7,6 +7,7 @@ import About from "./components/About.js";
 import Contact from "./components/Contact.js";
 import Error from "./components/Error.js";
 import RestaurantMenuPage from "./components/RestaurantMenuPage.js";
+import UserContext from "./utils/UserContext.js";
 import { Suspense } from "react";
 // import Grocery from "./components/Grocery.js";
 
@@ -15,11 +16,25 @@ const Grocery = lazy(()=>import( "./components/Grocery.js"));
 
 //Main Component
 const AppLayout = () => {
+
+  const [userName,setUserName]=useState();
+  //auth logic
+  useEffect(()=>{
+    //some api call returns data
+    const data = {
+      name:'Apoorva'
+    };
+    setUserName(data.name);
+  },[]);
+
+// overriding default context value
   return (
+    <UserContext.Provider value={{loggedInUser:userName, setUserName}}>
     <div className="app">
       <Header/>
       <Outlet/>
     </div>
+    </UserContext.Provider>
   );
 };
 
