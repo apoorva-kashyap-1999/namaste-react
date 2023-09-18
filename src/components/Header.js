@@ -24,7 +24,7 @@ const Header = () => {
   return (
     <div className="flex flex-wrap justify-between bg-green-100 shadow-lg m-2 rounded-md">
       <div className="logo-container">
-        <img className="w-32" src={LOGO_URL}></img>
+        <img className="w-44 border rounded" src={LOGO_URL}></img>
       </div>
       <div className="flex items-center">
         <ul className="flex flex-wrap p-6 m-3">
