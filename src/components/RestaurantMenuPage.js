@@ -6,7 +6,7 @@ import { useState } from "react";
 
 const RestaurantMenuPage = () => {
   const [showIndex, setShowIndex] = useState(null);
-  const dummy = 'Dummy Data';
+  const dummy = "Dummy Data";
   // destructing resId from the url. and then we will dynamically put id from swiggy api
   //10366,25457
   const { resId } = useParams();
@@ -50,8 +50,10 @@ const RestaurantMenuPage = () => {
           <RestaurantCategory
             key={category?.card?.card.title}
             data={category?.card?.card}
-            showItems={index === showIndex ? true: false}
-            setShowIndex = {()=>setShowIndex(index)}
+            showItems={index === showIndex ? true : false}
+            setShowIndex={() =>
+              index == showIndex ? setShowIndex(null) : setShowIndex(index)
+            }
             dummy={dummy}
           />
         );
