@@ -12,7 +12,7 @@ const ResterauntCard = ({
   //destructing of props
   // const {name, time} = props;
   return (
-    <div className="relative p-4 m-4 bg-transparent w-[302px] rounded-lg shadow-lg transform hover:scale-90">
+    <div className="relative p-4 m-4 bg-transparent w-[302px] rounded-lg shadow-lg transform hover:scale-90 ease-in-out duration-200">
       <img
         className="rounded-lg"
         alt="res-logo"
