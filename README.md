@@ -126,6 +126,16 @@
  - https://react.dev/reference/react/useContext
  - https://react.dev/reference/react/createContext
  - Cannot be used in class based components with hooks, so Context.Consumer is used
+
+# Redux 
+ - A Predictable State Container for JS Apps
+ - https://redux.js.org/ 
+ - Install @reduxjs/toolkit and react-redux
+ - Build our store and the connect to our app
+ - Create cart slices in store
+ - Ex: (WRITE): Add button will dispatch an action that will call a Reducer Function which will then modify the Slice of our Cart Store(Redux Store).
+ - (READ): To fetch/read data from Store we need a Selector which will modify our component. This process is called Subscribing to Store
+ - Read Immer - https://immerjs.github.io/immer/
    
 
  

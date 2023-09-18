@@ -21,7 +21,7 @@ const RestaurantCategory = ({data , showItems, setShowIndex, dummy}) => {
         <span>🔽</span>
       </div>
         {/* Accordian Body */}
-        {showItems && <ItemList items={data.itemCards} dummy={dummy} />}
+        {showItems && <ItemList items={data.itemCards} isCart={false} dummy={dummy} />}
     </div>
     </div>
   )

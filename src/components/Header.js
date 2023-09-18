@@ -3,12 +3,13 @@ import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 
 //Header Component
 const Header = () => {
   const [buttonName, setButtonName] = useState("Login");
   const onlineStatus = useOnlineStatus();
-  const {loggedInUser} = useContext(UserContext);
+  const { loggedInUser } = useContext(UserContext);
   const handleClick = () => {
     buttonName === "Login" ? setButtonName("Logout") : setButtonName("Login");
   };
@@ -16,6 +17,9 @@ const Header = () => {
   useEffect(() => {
     console.log("useEffect getting called basis buttonName login/logout");
   }, [buttonName]);
+
+  //Selector --> subscribing to our store
+  const cartItems = useSelector((store) => store.cart.items);
 
   return (
     <div className="flex flex-wrap justify-between bg-green-100 shadow-lg m-2 rounded-md">
@@ -37,13 +41,24 @@ const Header = () => {
           <li className="px-3  hover:bg-green-200 rounded-md">
             <Link to="/grocery">Grocery</Link>
           </li>
-          <li className="px-3 hover:bg-green-200 rounded-md">Cart</li>
-          <button className="px-3 hover:bg-green-300 rounded-md" onClick={handleClick}>
+          <li className="px-3 text-lg hover:bg-green-200 rounded-md">
+            <Link to="/cart">
+              Cart 🛒 {cartItems.length == 0 ? null : cartItems.length}
+            </Link>
+          </li>
+          <button
+            className="px-3 hover:bg-green-300 rounded-md"
+            onClick={handleClick}
+          >
             {buttonName}
           </button>
-          {onlineStatus? <li className="px-3 font-bold  hover:bg-green-200 rounded-md">
-            {loggedInUser}
-          </li>:<></>}
+          {onlineStatus ? (
+            <li className="px-3 font-bold  hover:bg-green-200 rounded-md">
+              {loggedInUser}
+            </li>
+          ) : (
+            <></>
+          )}
         </ul>
       </div>
     </div>
