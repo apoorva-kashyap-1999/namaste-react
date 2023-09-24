@@ -19,10 +19,10 @@ const User = (props) => {
         <h2>Name : {props.name}</h2>
         <h3>Loction : Patna</h3>
         <h4>Contact : 9xxxxxxx</h4>
-        <h5>Count : {count}</h5>
+        <h5>Likes : {count}</h5>
         <button onClick={()=>{
            setCount(count+1);
-        }}>Count</button>
+        }}>Like</button>
     </div>
     )
 }

@@ -49,12 +49,12 @@ class UserClass extends React.Component{
         <h2>Name : {this.state.userInfo.name}</h2>
         <h3>Loction : {this.state.userInfo.location}</h3>
         <h4>Contact : 9xxxxxxx</h4>
-        <h5>Count : {count}</h5>
-        <button className="bg-gray-200 hover:bg-gray-400 rounded-md" onClick={()=>{
+        <h5>Like(s) : {count}</h5>
+        <button className="bg-gray-200 hover:bg-gray-400 rounded-md px-2 py-1" onClick={()=>{
             this.setState({
                 count:count+1
             })
-        }}>Count</button>
+        }}>Like</button>
     </div>
     )
     }

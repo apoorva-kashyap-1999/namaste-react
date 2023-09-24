@@ -166,7 +166,7 @@
 - Jest is a delightful JavaScript Testing Framework with a focus on simplicity. It works with projects using: Babel, TypeScript, Node, React, Angular, Vue and more!
 - Using Babel :https://jestjs.io/docs/getting-started (Babel for jest)
 
-# Setting up test
+# Setting up testing
 
 - Install React Testing Library
 - Installed jest
@@ -178,3 +178,4 @@
 - Install @babel/preset-react - to make JSX work in test cases
 - Include @babel/preset-react inside my babel config
 - npm i -D @testing-library/jest-dom
+- https://jestjs.io/docs/expect

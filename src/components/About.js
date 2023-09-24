@@ -28,7 +28,7 @@ Parent comp did mount
   render() {
     // console.log('Parent render');
     return (
-      <div className="flex flex-col items-center justify-center ">
+      <div className="flex flex-col items-center justify-center">
         <h2 className="p-4 m-4 font-bold bg-gray-100 rounded-md">
           This is a Namaste React Web Series
         </h2>
