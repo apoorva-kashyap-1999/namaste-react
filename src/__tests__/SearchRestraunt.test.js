@@ -5,21 +5,21 @@ import MOCK_DATA from "../mocks/mockResListData.json";
 import { BrowserRouter } from "react-router-dom";
 import { act } from "react-dom/test-utils";
 
-beforeAll(()=>{
-    console.log('Before All');
-})
+beforeAll(() => {
+  console.log("Before All");
+});
 
-beforeEach(()=>{
-    console.log('Before Each');
-})
+beforeEach(() => {
+  console.log("Before Each");
+});
 
-afterAll(()=>{
-    console.log('After all')
-})
+afterAll(() => {
+  console.log("After all");
+});
 
-afterEach(()=>{
-    console.log('After all')
-})
+afterEach(() => {
+  console.log("After all");
+});
 
 //NOTE: while using fetch.setUpdte we should always wrap render in act or use waitFor to wrap assertions
 //mocking fetch we used in Body exctly as it is,as it is broswer's fetaure
@@ -62,6 +62,30 @@ describe("Search/Top Rated Restraunt Feature -- Integration Testing", () => {
     expect(cardsAfterSearch.length).toBe(4);
   });
 
+  it("Wrong search", async () => {
+    await act(async () =>
+      render(
+        <BrowserRouter>
+          <Body />
+        </BrowserRouter>
+      )
+    );
+
+    const searchBtn = screen.getByRole("button", { name: "Search" });
+    const searchInput = screen.getByTestId("searchInput");
+
+    fireEvent.change(searchInput, { target: { value: "gggth" } });
+
+    fireEvent.click(searchBtn);
+    const noRestaurantsFoundText = screen.getByText((content, element) => {
+      return (
+        content.match(/No Restaurants found 😥/i) &&
+        element.tagName.toLowerCase() === "h1"
+      );
+    });
+
+    expect(noRestaurantsFoundText).toBeInTheDocument();
+  });
   it("Should filter Top Rated Restaurant", async () => {
     await act(async () =>
       render(

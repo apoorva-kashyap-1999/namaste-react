@@ -5,7 +5,7 @@ import { withVegLabel } from "../components/ResterauntCard";
 import MOCK_DATA from "../mocks/resCardMock.json";
 
 describe("RestrauntCard", () => {
-  it("Redering RestrauntCard with provided props", () => {
+  it("Rendering RestrauntCard with provided props", () => {
     render(<ResterauntCard {...MOCK_DATA} />);
 
     const name = screen.getByText("Leon's - Burgers & Wings (Leon Grill)");

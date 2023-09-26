@@ -8,6 +8,7 @@ import UserContext from "../utils/UserContext.js";
 
 //Body Component
 const Body = () => {
+  const [searchResultsEmpty, setSearchResultsEmpty] = useState(false);
   const [listOfResteraunts, setListOfResteraunts] = useState([]);
   const [filteredlistOfResteraunts, setFilteredlistOfResteraunts] = useState(
     []
@@ -85,6 +86,7 @@ const Body = () => {
                   .includes(searchText.toLowerCase())
               );
               setFilteredlistOfResteraunts(filteredRes);
+              setSearchResultsEmpty(filteredRes.length === 0);
             }}
           >
             Search
@@ -110,22 +112,28 @@ const Body = () => {
         </div>
       </div>
       <div className="flex flex-wrap">
-        {filteredlistOfResteraunts.map((restaurant) => {
-          return (
-            <Link
-              to={"restaurants/" + restaurant.info.id}
-              key={restaurant.info.id}
-            >
-              {/* If veg parameter is present and true show Veg label else nothing */}
-              {restaurant.info.veg && restaurant.info.veg == true ? (
-                <ResterauntCardVeg {...restaurant.info} />
-              ) : (
-                <ResterauntCard {...restaurant.info} />
-              )}
-            </Link>
-          );
-          // return <ResterauntCard key={restaurant.info.id} {...restaurant.info} />
-        })}
+        {searchResultsEmpty ? (
+          <h1 className="font-bold text-3xl w-full flex justify-center items-center m-44">
+            No Restaurants found 😥
+          </h1>
+        ) : (
+          filteredlistOfResteraunts.map((restaurant) => {
+            return (
+              <Link
+                to={"restaurants/" + restaurant.info.id}
+                key={restaurant.info.id}
+              >
+                {/* If veg parameter is present and true show Veg label else nothing */}
+                {restaurant.info.veg && restaurant.info.veg == true ? (
+                  <ResterauntCardVeg {...restaurant.info} />
+                ) : (
+                  <ResterauntCard {...restaurant.info} />
+                )}
+              </Link>
+            );
+            // return <ResterauntCard key={restaurant.info.id} {...restaurant.info} />
+          })
+        )}
       </div>
     </div>
   );
